@@ -1,6 +1,9 @@
 /* SubControl landing interactions — vanilla JS, no dependencies */
 (function(){
 "use strict";
+/* flag JS availability FIRST — CSS hides the hero only when .js is present,
+   so a stale-cached or failed script can never leave the hero blank */
+document.documentElement.classList.add("js");
 var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- configurable placeholders (never fake live numbers) ---------- */
@@ -61,7 +64,10 @@ if (scene && heroScene && !reduceMotion && window.matchMedia("(pointer:fine)").m
     scene.style.transform = "rotateY(" + (cx*10).toFixed(2) + "deg) rotateX(" + (-cy*8).toFixed(2) + "deg)";
     for (var i = 0; i < depths.length; i++) {
       var o = depths[i];
-      o.el.style.translate = (cx*o.d).toFixed(1) + "px " + (cy*o.d).toFixed(1) + "px";
+      /* write to CSS vars consumed by [data-depth]{transform:...} — keeps the
+         `translate` property free for the bob keyframes (no layout thrash) */
+      o.el.style.setProperty("--px", (cx*o.d).toFixed(1) + "px");
+      o.el.style.setProperty("--py", (cy*o.d).toFixed(1) + "px");
     }
   }
   function parLoop(){
