@@ -117,7 +117,7 @@ img{max-width:100%}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
 /* ---------- problem ---------- */
-.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin:3rem auto 0;max-width:880px}
 .problem-card{padding:2rem}
 .problem-card h3{margin:1.2rem 0 .5rem}
 .problem-card p{color:var(--ink-dim);font-size:.96rem}
@@ -132,6 +132,10 @@ img{max-width:100%}
 .m2{left:80px;top:44px;font-size:2rem;color:var(--bad);animation-delay:-1.6s}
 .m3{left:140px;top:16px;font-size:3rem;color:var(--cyan);animation-delay:-3s}
 .bars{display:flex;align-items:flex-end;gap:12px;height:100%;padding:10px 6px}
+.recur-illus{display:grid;place-items:center}
+.recur-ring{font-size:4.4rem;line-height:1;color:var(--warn);text-shadow:0 6px 18px rgba(0,0,0,.4);animation:spin 9s linear infinite}
+.recur-dollar{position:absolute;font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
 .bars i{flex:1;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:10px;height:var(--h);box-shadow:inset 2px 2px 5px rgba(255,255,255,.35),0 8px 18px rgba(0,0,0,.35)}
 .bars i:nth-child(2){animation-delay:.12s}.bars i:nth-child(3){animation-delay:.24s}.bars i:nth-child(4){animation-delay:.36s}
 @keyframes grow{from{height:6%}}
