@@ -48,24 +48,37 @@ var SUBS = {
 };
 function money(n){ return "$" + n.toFixed(2); }
 
-/* ---------- hero 3D parallax ---------- */
+/* ---------- hero 3D parallax (lerped for buttery motion) ---------- */
 var scene = document.getElementById("scene");
 var heroScene = document.getElementById("hero-scene");
 if (scene && heroScene && !reduceMotion && window.matchMedia("(pointer:fine)").matches) {
+  var depths = [];
+  scene.querySelectorAll("[data-depth]").forEach(function(el){
+    depths.push({ el: el, d: parseFloat(el.getAttribute("data-depth")) || 20 });
+  });
+  var tx = 0, ty = 0, cx = 0, cy = 0, parRaf = null;
+  function parApply(){
+    scene.style.transform = "rotateY(" + (cx*10).toFixed(2) + "deg) rotateX(" + (-cy*8).toFixed(2) + "deg)";
+    for (var i = 0; i < depths.length; i++) {
+      var o = depths[i];
+      o.el.style.translate = (cx*o.d).toFixed(1) + "px " + (cy*o.d).toFixed(1) + "px";
+    }
+  }
+  function parLoop(){
+    cx += (tx - cx) * 0.085;
+    cy += (ty - cy) * 0.085;
+    parApply();
+    if (Math.abs(tx - cx) > 0.0008 || Math.abs(ty - cy) > 0.0008) { parRaf = requestAnimationFrame(parLoop); }
+    else { cx = tx; cy = ty; parApply(); parRaf = null; }
+  }
+  function parKick(){ if (parRaf === null) parRaf = requestAnimationFrame(parLoop); }
   heroScene.addEventListener("mousemove", function(e){
     var r = heroScene.getBoundingClientRect();
-    var x = (e.clientX - r.left) / r.width - 0.5;
-    var y = (e.clientY - r.top) / r.height - 0.5;
-    scene.style.transform = "rotateY(" + (x*10).toFixed(2) + "deg) rotateX(" + (-y*8).toFixed(2) + "deg)";
-    scene.querySelectorAll("[data-depth]").forEach(function(el){
-      var d = parseFloat(el.getAttribute("data-depth")) || 20;
-      el.style.translate = (x*d).toFixed(1) + "px " + (y*d).toFixed(1) + "px";
-    });
+    tx = (e.clientX - r.left) / r.width - 0.5;
+    ty = (e.clientY - r.top) / r.height - 0.5;
+    parKick();
   });
-  heroScene.addEventListener("mouseleave", function(){
-    scene.style.transform = "rotateY(0deg) rotateX(0deg)";
-    scene.querySelectorAll("[data-depth]").forEach(function(el){ el.style.translate = "0px 0px"; });
-  });
+  heroScene.addEventListener("mouseleave", function(){ tx = 0; ty = 0; parKick(); });
 }
 
 /* ---------- count-up ---------- */
@@ -95,10 +108,76 @@ var cio = new IntersectionObserver(function(entries){
 document.querySelectorAll(".count").forEach(function(el){ cio.observe(el); });
 
 /* ---------- reveal on scroll ---------- */
+/* section headers get reveals progressively (no-JS still shows them) */
+document.querySelectorAll(".section .eyebrow, .section h2, .section .section-lede").forEach(function(el){
+  el.classList.add("reveal");
+});
+var footGrid = document.querySelector(".foot-grid");
+if (footGrid) footGrid.classList.add("reveal");
+
 var rio = new IntersectionObserver(function(entries){
   entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add("in"); rio.unobserve(en.target); } });
 }, { threshold: 0.12 });
-document.querySelectorAll(".reveal").forEach(function(el){ rio.observe(el); });
+document.querySelectorAll(".reveal").forEach(function(el){
+  if (!el.closest("[data-stagger],[data-stagger-fade]")) rio.observe(el);
+});
+
+/* ---------- stagger system: grid children rise in sequence ---------- */
+(function staggerInit(){
+  if (reduceMotion) return;
+  document.querySelectorAll("[data-stagger],[data-stagger-fade]").forEach(function(g){
+    g.classList.add("pre");
+    var step = parseInt(g.getAttribute("data-stagger") || g.getAttribute("data-stagger-fade") || "90", 10);
+    var so = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var items = g.children;
+        for (var i = 0; i < items.length; i++) {
+          (function(it, idx){
+            it.style.transitionDelay = (idx * step) + "ms";
+            void it.offsetWidth;
+            it.classList.add("in");
+            var done = function(e){
+              if (e.propertyName === "opacity" || e.propertyName === "transform") {
+                it.style.transitionDelay = "";
+                it.removeEventListener("transitionend", done);
+              }
+            };
+            it.addEventListener("transitionend", done);
+            setTimeout(function(){ it.style.transitionDelay = ""; }, step * items.length + 900);
+          })(items[i], i);
+        }
+        so.unobserve(g);
+      });
+    }, { threshold: 0.15 });
+    so.observe(g);
+  });
+})();
+
+/* ---------- problem bars grow when visible ---------- */
+if (!reduceMotion) {
+  document.querySelectorAll(".bars").forEach(function(b){
+    var bo = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (en.isIntersecting) { b.classList.add("play"); bo.unobserve(b); } });
+    }, { threshold: 0.4 });
+    bo.observe(b);
+  });
+}
+
+/* ---------- donut sweep ---------- */
+(function donutInit(){
+  var donuts = document.querySelectorAll(".donut");
+  if (!donuts.length || reduceMotion) return;
+  if (!(window.CSS && CSS.registerProperty)) return;
+  try { CSS.registerProperty({ name: "--p", syntax: "<percentage>", inherits: false, initialValue: "100%" }); } catch(e){}
+  donuts.forEach(function(d){ d.classList.add("pre"); });
+  var dob = new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.remove("pre"); dob.unobserve(en.target); }
+    });
+  }, { threshold: 0.4 });
+  donuts.forEach(function(d){ dob.observe(d); });
+})();
 
 /* ---------- mini dashboard ---------- */
 var miniList = document.getElementById("mini-list");
@@ -133,12 +212,22 @@ function openModal(key){
   lastFocus = document.activeElement;
   modal.hidden = false;
   document.body.style.overflow = "hidden";
+  if (!reduceMotion) {
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ modal.classList.add("open"); });
+    });
+  }
   document.getElementById("modal-close").focus();
 }
 function closeModal(){
-  modal.hidden = true;
-  document.body.style.overflow = "";
-  if (lastFocus && lastFocus.focus) lastFocus.focus();
+  function finish(){
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  if (reduceMotion || !modal.classList.contains("open")) { modal.classList.remove("open"); finish(); return; }
+  modal.classList.remove("open");
+  setTimeout(finish, 300);
 }
 document.querySelectorAll("[data-sub]").forEach(function(el){
   el.addEventListener("click", function(){ openModal(el.getAttribute("data-sub")); });
@@ -148,10 +237,20 @@ document.getElementById("modal-close").addEventListener("click", closeModal);
 modal.addEventListener("click", function(e){ if (e.target === modal) closeModal(); });
 document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !modal.hidden) closeModal(); });
 document.getElementById("m-remind").addEventListener("click", function(){
-  document.getElementById("m-note").textContent = "SubControl reminds you before every renewal — with time to pause or cancel.";
+  var note = document.getElementById("m-note");
+  note.textContent = "SubControl reminds you before every renewal — with time to pause or cancel.";
+  if (!reduceMotion && note.animate) note.animate(
+    [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }],
+    { duration: 300, easing: "ease" }
+  );
 });
 document.getElementById("m-review").addEventListener("click", function(){
-  document.getElementById("m-note").textContent = "Marked for review — SubControl surfaces candidates like this in your savings check.";
+  var note = document.getElementById("m-note");
+  note.textContent = "Marked for review — SubControl surfaces candidates like this in your savings check.";
+  if (!reduceMotion && note.animate) note.animate(
+    [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }],
+    { duration: 300, easing: "ease" }
+  );
 });
 document.querySelectorAll(".review-card .btn").forEach(function(b){
   b.addEventListener("click", function(){ b.textContent = "Saved ✓"; b.disabled = true; });
@@ -223,4 +322,47 @@ if (form) {
     });
   });
 }
+
+/* ---------- page-load entrance ---------- */
+requestAnimationFrame(function(){
+  requestAnimationFrame(function(){ document.body.classList.add("loaded"); });
+});
+
+/* ---------- nav scroll state + hero parallax on scroll ---------- */
+var topnav = document.getElementById("topnav");
+var heroBg = document.querySelector(".hero-bg");
+var heroSec = document.querySelector(".hero");
+var scrollTick = false;
+function onScrollMotion(){
+  var y = window.scrollY || window.pageYOffset;
+  if (topnav) topnav.classList.toggle("scrolled", y > 24);
+  if (!reduceMotion && heroBg && heroSec && y < heroSec.offsetHeight) {
+    heroBg.style.transform = "translateY(" + (y * 0.12).toFixed(1) + "px)";
+  }
+  scrollTick = false;
+}
+window.addEventListener("scroll", function(){
+  if (!scrollTick) { scrollTick = true; requestAnimationFrame(onScrollMotion); }
+}, { passive: true });
+onScrollMotion();
+
+/* ---------- active nav link ---------- */
+(function activeNav(){
+  var map = {};
+  document.querySelectorAll(".nav-links a").forEach(function(a){
+    var h = a.getAttribute("href");
+    if (h && h.charAt(0) === "#") map[h.slice(1)] = a;
+  });
+  var ids = Object.keys(map);
+  if (!ids.length) return;
+  var sao = new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if (en.isIntersecting) {
+        ids.forEach(function(k){ map[k].classList.remove("active"); });
+        if (map[en.target.id]) map[en.target.id].classList.add("active");
+      }
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  ids.forEach(function(id){ var s = document.getElementById(id); if (s) sao.observe(s); });
+})();
 })();
