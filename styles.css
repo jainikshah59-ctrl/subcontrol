@@ -121,7 +121,7 @@ img{max-width:100%}
 .problem-card{padding:2rem}
 .problem-card h3{margin:1.2rem 0 .5rem}
 .problem-card p{color:var(--ink-dim);font-size:.96rem}
-.p-illus{height:110px;position:relative}
+.p-illus{height:110px;position:relative;overflow:hidden}
 .stack{position:absolute;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:#fff;box-shadow:var(--shadow-clay-sm)}
 .s1{background:linear-gradient(145deg,#E50914,#7a0a10);left:8px;top:26px;transform:rotate(-8deg)}
 .s2{background:linear-gradient(145deg,#1DB954,#0d5c2a);left:56px;top:12px;transform:rotate(5deg)}
@@ -133,12 +133,13 @@ img{max-width:100%}
 .m3{left:140px;top:16px;font-size:3rem;color:var(--cyan);animation-delay:-3s}
 .bars{display:flex;align-items:flex-end;gap:12px;height:100%;padding:10px 6px}
 .recur-illus{display:grid;place-items:center}
-.recur-ring{font-size:4.4rem;line-height:1;color:var(--warn);text-shadow:0 6px 18px rgba(0,0,0,.4);animation:spin 9s linear infinite}
-.recur-dollar{position:absolute;font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:var(--ink)}
+.recur-illus::before{content:"";position:absolute;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,rgba(255,180,84,.16),transparent 70%)}
+.recur-ring{font-size:5rem;line-height:1;color:var(--warn);text-shadow:0 6px 18px rgba(0,0,0,.4);animation:spin 9s linear infinite}
+.recur-dollar{position:absolute;font-family:var(--font-d);font-weight:800;font-size:1.6rem;color:var(--ink)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.bars i{flex:1;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:10px;height:var(--h);box-shadow:inset 2px 2px 5px rgba(255,255,255,.35),0 8px 18px rgba(0,0,0,.35)}
+.bars i{flex:1;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:10px;height:var(--h);transform-origin:bottom;box-shadow:inset 2px 2px 5px rgba(255,255,255,.35),0 8px 18px rgba(0,0,0,.35)}
 .bars i:nth-child(2){animation-delay:.12s}.bars i:nth-child(3){animation-delay:.24s}.bars i:nth-child(4){animation-delay:.36s}
-@keyframes grow{from{height:6%}}
+@keyframes grow{from{transform:scaleY(.06)}}
 .logo-strip{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.6rem;justify-content:center}
 .lchip{padding:.6rem 1.2rem;font-weight:600;font-size:.9rem;color:var(--ink-dim)}
 
