@@ -58,6 +58,8 @@ img{max-width:100%}
 .nav-toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:.5rem;margin-left:auto}
 .nav-toggle span{width:24px;height:2.5px;border-radius:2px;background:var(--ink)}
 .nav-mobile{display:flex;flex-direction:column;gap:.4rem;padding:1rem 24px 1.4rem;background:rgba(10,14,26,.96);border-bottom:1px solid rgba(150,165,255,.1)}
+.nav-mobile[hidden]{display:none}
+@media (min-width:721px){.nav-mobile{display:none}}
 .nav-mobile a:not(.btn){text-decoration:none;padding:.55rem 0;color:var(--ink-dim);font-weight:600}
 
 /* ---------- hero ---------- */
