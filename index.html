@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SubControl — Take Control of Every Subscription</title>
+<meta name="description" content="Track subscriptions, monitor renewals, understand your recurring spending, and find opportunities to save with SubControl.">
+<link rel="canonical" href="https://subcontrol.app/">
+<meta name="theme-color" content="#0A0E1A">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SubControl">
+<meta property="og:title" content="SubControl — Take Control of Every Subscription">
+<meta property="og:description" content="See what you're paying for, know what's renewing, and find subscriptions you can cut — all in one place.">
+<meta property="og:url" content="https://subcontrol.app/">
+<meta property="og:image" content="https://subcontrol.app/public/og-cover.png">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SubControl — Take Control of Every Subscription">
+<meta name="twitter:description" content="See what you're paying for, know what's renewing, and find subscriptions you can cut — all in one place.">
+<meta name="twitter:image" content="https://subcontrol.app/public/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+<link rel="apple-touch-icon" href="/public/favicon.svg">
+<link rel="manifest" href="/public/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SubControl",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "description": "Track subscriptions, monitor renewals, understand your recurring spending, and find opportunities to save.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="topnav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="SubControl home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B8CFF"/><stop offset="1" stop-color="#4DE3FF"/></linearGradient></defs><rect x="3" y="3" width="42" height="42" rx="14" fill="url(#lg1)"/><path d="M30.5 17.5a8 8 0 1 0 3.4 12.6" stroke="#0A0E1A" stroke-width="4.5" stroke-linecap="round" fill="none"/><path d="M33.5 13v6h-6" stroke="#0A0E1A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </span>
+      <span class="brand-name">SubControl</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="#waitlist" class="btn btn-primary btn-sm">Join the Waitlist</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile" hidden>
+    <a href="#problem">Problem</a>
+    <a href="#solution">Product</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="pulse-dot"></span> Early access opening soon</p>
+      <h1>Take Control of Every Subscription.</h1>
+      <p class="lede">See what you're paying for, know what's renewing, and find subscriptions you can cut — all in one place.</p>
+      <div class="hero-ctas">
+        <a href="#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+        <a href="#how" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <p class="trust-note" id="social-proof">Join the early access list<span class="trust-sub">Be first in line when SubControl launches.</span></p>
+    </div>
+    <div class="hero-visual" id="hero-scene" aria-label="Interactive 3D preview of the SubControl dashboard. Move your pointer to explore.">
+      <div class="scene" id="scene">
+        <div class="dash-board clay" data-depth="18">
+          <div class="dash-head">
+            <span class="dash-title">Subscription Control Center</span>
+            <span class="dash-live"><i></i>Live demo</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-card clay-sm">
+              <span class="stat-label">Monthly Spend</span>
+              <span class="stat-value"><span class="count" data-target="184.72" data-prefix="$" data-decimals="2">$0.00</span></span>
+            </div>
+            <div class="stat-card clay-sm">
+              <span class="stat-label">Active Subscriptions</span>
+              <span class="stat-value"><span class="count" data-target="12">0</span></span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-card clay-sm accent">
+              <span class="stat-label">Upcoming</span>
+              <span class="stat-value"><span class="count" data-target="3">0</span> renewals</span>
+            </div>
+            <div class="stat-card clay-sm good">
+              <span class="stat-label">Potential Savings</span>
+              <span class="stat-value"><span class="count" data-target="47" data-prefix="$" data-suffix="/mo">$0/mo</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="sub-card clay float-a" data-depth="42" data-sub="netflix" tabindex="0" role="button" aria-label="Netflix details">
+          <span class="sub-logo" style="--c1:#E50914;--c2:#7a0a10">N</span>
+          <span class="sub-meta"><strong>Netflix</strong><em>$22.99 · Renews in 3 days</em></span>
+          <span class="sub-chev">›</span>
+        </div>
+        <div class="sub-card clay float-b" data-depth="58" data-sub="spotify" tabindex="0" role="button" aria-label="Spotify details">
+          <span class="sub-logo" style="--c1:#1DB954;--c2:#0d5c2a">S</span>
+          <span class="sub-meta"><strong>Spotify</strong><em>$11.99 · Renews in 8 days</em></span>
+          <span class="sub-chev">›</span>
+        </div>
+        <div class="sub-card clay float-c" data-depth="34" data-sub="adobe" tabindex="0" role="button" aria-label="Adobe details">
+          <span class="sub-logo" style="--c1:#5B8CFF;--c2:#2b3f9e">A</span>
+          <span class="sub-meta"><strong>Adobe</strong><em>$59.99 · Renews in 14 days</em></span>
+          <span class="sub-chev">›</span>
+        </div>
+        <div class="sub-card clay float-d" data-depth="50" data-sub="gym" tabindex="0" role="button" aria-label="Gym membership details">
+          <span class="sub-logo" style="--c1:#B9AFFF;--c2:#5b54a8">G</span>
+          <span class="sub-meta"><strong>Gym Membership</strong><em>$39.00 · Renews in 21 days</em></span>
+          <span class="sub-chev">›</span>
+        </div>
+        <div class="alert-chip clay float-e" data-depth="66" aria-hidden="true">
+          <span class="bell">◉</span> Netflix renews in 3 days — $22.99
+        </div>
+      </div>
+      <p class="scene-hint">Interactive preview — hover the cards, click one for details</p>
+    </div>
+  </div>
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Streaming</span><span>Software</span><span>Fitness</span><span>Cloud storage</span><span>News</span><span>Memberships</span><span>Apps</span><span>Music</span><span>Streaming</span><span>Software</span><span>Fitness</span><span>Cloud storage</span><span>News</span><span>Memberships</span><span>Apps</span><span>Music</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>Subscriptions Are Easy to Start.<br><span class="grad">Easy to Forget.</span></h2>
+    <p class="section-lede">The average person juggles a dozen recurring charges. Free trials turn into paid plans. Annual renewals arrive as surprises. And nobody has the full picture.</p>
+    <div class="problem-grid">
+      <div class="problem-card clay reveal">
+        <div class="p-illus" aria-hidden="true"><span class="stack s1">N</span><span class="stack s2">S</span><span class="stack s3">A</span><span class="stack s4">+</span></div>
+        <h3>Forgotten sign-ups</h3>
+        <p>That trial you meant to cancel. The app you opened twice. They keep billing, quietly.</p>
+      </div>
+      <div class="problem-card clay reveal">
+        <div class="p-illus" aria-hidden="true"><span class="money">$</span><span class="money m2">$</span><span class="money m3">$</span></div>
+        <h3>Surprise renewals</h3>
+        <p>Annual plans renew at the worst moment — because no one reminded you they were coming.</p>
+      </div>
+      <div class="problem-card clay reveal">
+        <div class="p-illus bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:58%"></i><i style="--h:82%"></i><i style="--h:100%"></i></div>
+        <h3>Creeping totals</h3>
+        <p>$9.99 here, $14.99 there. Individually harmless — together, a second utility bill.</p>
+      </div>
+    </div>
+    <div class="logo-strip" aria-label="Examples of subscription types">
+      <span class="lchip clay-sm">Netflix</span><span class="lchip clay-sm">Spotify</span><span class="lchip clay-sm">Adobe</span><span class="lchip clay-sm">iCloud</span><span class="lchip clay-sm">Amazon Prime</span><span class="lchip clay-sm">Gym</span><span class="lchip clay-sm">News</span><span class="lchip clay-sm">Software tools</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION ============ -->
+<section class="section" id="solution">
+  <div class="wrap split">
+    <div class="split-copy">
+      <p class="eyebrow">The solution</p>
+      <h2>One Place for Everything You Pay For.</h2>
+      <p class="section-lede">SubControl is your Subscription Control Center — not another list. Every recurring charge, every renewal date, every dollar, in one calm dashboard.</p>
+      <ul class="checklist">
+        <li><b>See</b> every active subscription with its true monthly cost</li>
+        <li><b>Know</b> exactly what's renewing and when</li>
+        <li><b>Decide</b> what to keep, pause, or cancel — with the numbers in front of you</li>
+      </ul>
+      <a href="#waitlist" class="btn btn-primary">Join the Waitlist</a>
+    </div>
+    <div class="split-visual">
+      <div class="mini-dash clay reveal" id="mini-dash" aria-label="Simulated SubControl dashboard. Click a subscription for details.">
+        <div class="mini-head"><span>October</span><span class="mini-total">$184.72<span>/mo</span></span></div>
+        <div class="mini-list" id="mini-list"><!-- rendered by JS --></div>
+        <div class="mini-foot"><span class="mini-cta">+ Add subscription</span><span class="mini-note">Demo data — click any card</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Three Steps. <span class="grad">Total Clarity.</span></h2>
+    <div class="steps">
+      <div class="step clay reveal">
+        <span class="step-n">01</span>
+        <div class="step-illus" aria-hidden="true"><span class="plus-card">+</span></div>
+        <h3>Add your subscriptions</h3>
+        <p>Type them in manually in seconds. No bank connection required — your data stays yours.</p>
+      </div>
+      <div class="step clay reveal">
+        <span class="step-n">02</span>
+        <div class="step-illus" aria-hidden="true"><span class="cal-card"><i></i><i></i><i class="hot"></i><i></i></span></div>
+        <h3>See upcoming renewals</h3>
+        <p>A clear timeline of what's renewing today, this week, and this month. Reminders before each charge.</p>
+      </div>
+      <div class="step clay reveal">
+        <span class="step-n">03</span>
+        <div class="step-illus" aria-hidden="true"><span class="chart-card"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:100%"></i></span></div>
+        <h3>Know where your money goes</h3>
+        <p>Monthly and yearly totals, category breakdowns, and savings opportunities — automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPENDING INTELLIGENCE ============ -->
+<section class="section" id="intelligence">
+  <div class="wrap">
+    <p class="eyebrow">Spending intelligence</p>
+    <h2>Your Money, <span class="grad">Visualized.</span></h2>
+    <p class="section-lede">SubControl turns a messy pile of charges into answers.</p>
+    <div class="intel-grid">
+      <div class="intel-card clay reveal">
+        <h3>Monthly vs yearly</h3>
+        <div class="big-nums">
+          <div><span class="bn-label">Per month</span><span class="bn-value"><span class="count" data-target="184.72" data-prefix="$" data-decimals="2">$0</span></span></div>
+          <div><span class="bn-label">Projected / year</span><span class="bn-value"><span class="count" data-target="2216.64" data-prefix="$" data-decimals="2">$0</span></span></div>
+        </div>
+        <div class="bar-chart" aria-hidden="true">
+          <div class="bar-row"><span>Jan</span><i style="--w:42%"></i></div>
+          <div class="bar-row"><span>Apr</span><i style="--w:55%"></i></div>
+          <div class="bar-row"><span>Jul</span><i style="--w:68%"></i></div>
+          <div class="bar-row"><span>Oct</span><i style="--w:88%"></i></div>
+        </div>
+      </div>
+      <div class="intel-card clay reveal">
+        <h3>Where it goes</h3>
+        <div class="donut-wrap">
+          <div class="donut" role="img" aria-label="Category breakdown: Streaming 38%, Software 27%, Fitness 16%, Other 19%"></div>
+          <ul class="legend">
+            <li><i style="--c:#4DE3FF"></i>Streaming · 38%</li>
+            <li><i style="--c:#5B8CFF"></i>Software · 27%</li>
+            <li><i style="--c:#8B7CFF"></i>Fitness · 16%</li>
+            <li><i style="--c:#3A4468"></i>Other · 19%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="intel-card clay reveal">
+        <h3>Largest subscriptions</h3>
+        <ol class="top-list">
+          <li><span>Adobe Creative Cloud</span><b>$59.99/mo</b></li>
+          <li><span>Gym Membership</span><b>$39.00/mo</b></li>
+          <li><span>Netflix Premium</span><b>$22.99/mo</b></li>
+          <li><span>iCloud+ 2TB</span><b>$9.99/mo</b></li>
+        </ol>
+        <p class="fine">Demo figures for illustration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RENEWAL ALERTS ============ -->
+<section class="section" id="alerts">
+  <div class="wrap split reverse">
+    <div class="split-visual">
+      <div class="notif-stack" aria-label="Example renewal reminders">
+        <div class="notif clay reveal"><span class="n-ico">◉</span><div><strong>Netflix renews tomorrow</strong><span>$22.99 · Premium plan</span></div><time>now</time></div>
+        <div class="notif clay reveal"><span class="n-ico">◉</span><div><strong>Adobe renews in 3 days</strong><span>$59.99 · Creative Cloud</span></div><time>2h</time></div>
+        <div class="notif clay reveal"><span class="n-ico">◉</span><div><strong>Gym membership renews Friday</strong><span>$39.00 · Monthly</span></div><time>1d</time></div>
+      </div>
+    </div>
+    <div class="split-copy">
+      <p class="eyebrow">Renewal alerts</p>
+      <h2>Never Miss a Renewal <span class="grad">Again.</span></h2>
+      <p class="section-lede">Get a heads-up before every charge — with enough time to pause, downgrade, or cancel.</p>
+      <ul class="checklist">
+        <li>Reminders <b>3 days before</b> every renewal, by default</li>
+        <li><b>Custom schedules</b> per subscription on Pro</li>
+        <li>Price-change alerts when a plan gets more expensive</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAVINGS ============ -->
+<section class="section" id="savings">
+  <div class="wrap">
+    <p class="eyebrow">Savings</p>
+    <h2>Find Your <span class="grad">$47/month.</span></h2>
+    <p class="section-lede">SubControl flags subscriptions you haven't reviewed in a while — so the savings find you.</p>
+    <div class="save-banner clay reveal">
+      <div class="save-hero"><span class="save-label">You could save</span><span class="save-value"><span class="count" data-target="47" data-prefix="$" data-suffix="/mo">$0/mo</span></span></div>
+      <p class="save-sub">3 subscriptions haven't been reviewed in 90+ days.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card clay reveal"><span class="sub-logo" style="--c1:#8B7CFF;--c2:#4a4490">M</span><div><strong>Music streaming+</strong><span>Last used 4 months ago · $11.99/mo</span></div><button class="btn btn-ghost btn-sm" type="button">Review</button></div>
+      <div class="review-card clay reveal"><span class="sub-logo" style="--c1:#4DE3FF;--c2:#1d6f85">C</span><div><strong>Cloud backup</strong><span>Duplicate of iCloud · $6.99/mo</span></div><button class="btn btn-ghost btn-sm" type="button">Review</button></div>
+      <div class="review-card clay reveal"><span class="sub-logo" style="--c1:#B9AFFF;--c2:#5b54a8">N</span><div><strong>News digest</strong><span>Unread for 6 months · $9.99/mo</span></div><button class="btn btn-ghost btn-sm" type="button">Review</button></div>
+    </div>
+    <p class="fine center">SubControl highlights candidates to review — the decision to cancel is always yours.</p>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Start Free. <span class="grad">Upgrade When Ready.</span></h2>
+    <div class="price-grid">
+      <div class="price-card clay reveal">
+        <h3>Free</h3>
+        <p class="price">$0<span>/forever</span></p>
+        <ul>
+          <li>Track up to 5 subscriptions</li>
+          <li>Basic dashboard</li>
+          <li>Renewal dates &amp; reminders</li>
+          <li>Monthly &amp; yearly totals</li>
+          <li>Basic categories &amp; search</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-ghost">Join the Waitlist</a>
+      </div>
+      <div class="price-card clay featured reveal">
+        <span class="flag">Early access</span>
+        <h3>Pro</h3>
+        <p class="price">Coming soon</p>
+        <ul>
+          <li><b>Unlimited</b> subscriptions</li>
+          <li>Advanced spending analytics</li>
+          <li>Smart renewal alerts</li>
+          <li>Savings insights dashboard</li>
+          <li>Price-change tracking</li>
+          <li>Data export &amp; history</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+      </div>
+    </div>
+    <p class="fine center">Pro pricing will be announced at launch. Early-access members lock in founding-member pricing.</p>
+  </div>
+</section>
+
+<!-- ============ PRIVACY ============ -->
+<section class="section" id="privacy">
+  <div class="wrap narrow center">
+    <div class="privacy-card clay reveal">
+      <div class="lock-illus" aria-hidden="true"><svg viewBox="0 0 64 64" width="52" height="52"><rect x="14" y="28" width="36" height="26" rx="9" fill="#5B8CFF"/><path d="M22 28v-8a10 10 0 0 1 20 0v8" stroke="#B9AFFF" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="32" cy="40" r="4" fill="#0A0E1A"/></svg></div>
+      <p class="eyebrow">Privacy</p>
+      <h2>Your subscriptions are your business.</h2>
+      <p>The MVP doesn't ask for bank access — you add subscriptions manually, and your data stays yours. No account aggregation, no selling data, no surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WAITLIST ============ -->
+<section class="section" id="waitlist">
+  <div class="wrap narrow">
+    <div class="wait-card clay reveal">
+      <p class="eyebrow">Early access</p>
+      <h2>Be first to take control.</h2>
+      <p class="section-lede">Join the early access list and get SubControl before everyone else.</p>
+      <form id="waitlist-form" novalidate>
+        <label class="sr-only" for="wl-email">Email address</label>
+        <div class="wl-row">
+          <input type="email" id="wl-email" name="email" placeholder="Enter your email" autocomplete="email" required aria-describedby="wl-msg">
+          <button type="submit" class="btn btn-primary btn-lg" id="wl-submit">Join the Waitlist</button>
+        </div>
+        <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
+        <p class="fine">One email per person. We'll only write about the launch — no spam, ever.</p>
+      </form>
+      <div class="wl-success" id="wl-success" hidden>
+        <div class="check-pop" aria-hidden="true">✓</div>
+        <h3>You're on the list.</h3>
+        <p id="wl-success-sub">You're officially on the SubControl early-access list.</p>
+        <div class="referral" id="wl-referral" hidden>
+          <p><b>Want in sooner?</b> Share your invite link:</p>
+          <div class="ref-row"><code id="ref-link"></code><button class="btn btn-ghost btn-sm" id="ref-copy" type="button">Copy</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="brand-name">SubControl</span>
+      <p>Take control of every subscription.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#problem">Problem</a><a href="#solution">Product</a><a href="#pricing">Pricing</a><a href="#privacy">Privacy</a><a href="#waitlist">Waitlist</a>
+    </nav>
+    <p class="foot-fine">© 2026 SubControl. Demo figures shown are illustrative. Early access — features subject to change.</p>
+  </div>
+</footer>
+
+<!-- Subscription detail modal -->
+<div class="modal-backdrop" id="modal" hidden>
+  <div class="modal clay" role="dialog" aria-modal="true" aria-labelledby="m-name">
+    <button class="modal-x" id="modal-close" aria-label="Close details">×</button>
+    <div class="modal-head"><span class="sub-logo lg" id="m-logo">N</span><div><h3 id="m-name">Netflix</h3><p id="m-plan">Premium plan</p></div><span class="status-pill" id="m-status">Active</span></div>
+    <dl class="modal-facts">
+      <div><dt>Price</dt><dd id="m-price">$22.99/month</dd></div>
+      <div><dt>Next renewal</dt><dd id="m-renew">October 12</dd></div>
+      <div><dt>Annual cost</dt><dd id="m-annual">$275.88</dd></div>
+      <div><dt>Billing</dt><dd id="m-bill">Monthly · Card •• 4242</dd></div>
+    </dl>
+    <div class="modal-actions">
+      <button class="btn btn-primary" type="button" id="m-remind">Set Reminder</button>
+      <button class="btn btn-ghost" type="button" id="m-review">Review Subscription</button>
+    </div>
+    <p class="fine" id="m-note">Demo preview — reminders activate at launch.</p>
+  </div>
+</div>
+
+<script src="/app.js" defer></script>
+</body>
+</html>
