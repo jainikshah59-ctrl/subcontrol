@@ -131,7 +131,7 @@ img{max-width:100%}
 .money{position:absolute;font-family:var(--font-d);font-weight:800;font-size:2.6rem;color:var(--warn);text-shadow:0 6px 18px rgba(0,0,0,.4);left:20px;top:18px;animation:bob 5s ease-in-out infinite}
 .m2{left:80px;top:44px;font-size:2rem;color:var(--bad);animation-delay:-1.6s}
 .m3{left:140px;top:16px;font-size:3rem;color:var(--cyan);animation-delay:-3s}
-.bars{display:flex;align-items:flex-end;gap:12px;height:100%;padding:10px 6px}
+.bars{display:flex;align-items:flex-end;gap:12px;padding:10px 6px}
 .recur-illus{display:grid;place-items:center}
 .recur-illus::before{content:"";position:absolute;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,rgba(255,180,84,.16),transparent 70%)}
 .recur-ring{font-size:5rem;line-height:1;color:var(--warn);text-shadow:0 6px 18px rgba(0,0,0,.4);animation:spin 9s linear infinite}
