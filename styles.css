@@ -79,7 +79,8 @@ img{max-width:100%}
 
 /* hero 3D scene */
 .hero-visual{perspective:1400px;min-height:560px}
-.scene{position:relative;transform-style:preserve-3d;transition:transform .35s ease-out;min-height:560px}
+.scene{position:relative;transform-style:preserve-3d;min-height:560px}
+[data-depth]{transform:translate(var(--px,0px),var(--py,0px))}
 .dash-board{padding:1.5rem;transform:translateZ(0)}
 .dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.1rem}
 .dash-title{font-family:var(--font-d);font-weight:700;font-size:1.02rem}
@@ -91,14 +92,14 @@ img{max-width:100%}
 .stat-value{font-family:var(--font-d);font-weight:800;font-size:1.5rem}
 .stat-card.accent .stat-value{color:var(--cyan)}
 .stat-card.good .stat-value{color:var(--good)}
-.sub-card{position:absolute;display:flex;align-items:center;gap:.85rem;padding:.85rem 1.1rem;cursor:pointer;min-width:250px;transition:box-shadow .25s ease,transform .35s cubic-bezier(.22,.8,.3,1),filter .25s ease;animation:bob 7s ease-in-out infinite}
-.sub-card:hover,.sub-card:focus-visible{box-shadow:var(--shadow-lift);outline:2px solid var(--cyan);outline-offset:2px;transform:scale(1.05);filter:brightness(1.12)}
+.sub-card{position:absolute;display:flex;align-items:center;gap:.85rem;padding:.85rem 1.1rem;cursor:pointer;min-width:250px;transition:box-shadow .25s ease,scale .35s cubic-bezier(.22,.8,.3,1),filter .25s ease;animation:bob 7s ease-in-out infinite}
+.sub-card:hover,.sub-card:focus-visible{box-shadow:var(--shadow-lift);outline:2px solid var(--cyan);outline-offset:2px;scale:1.05;filter:brightness(1.12)}
 .sub-card[data-sub="netflix"]{top:6%;right:-4%}
 .sub-card[data-sub="spotify"]{top:34%;right:6%}
 .sub-card[data-sub="peloton"]{top:58%;right:-2%}
 .sub-card[data-sub="youtube"]{top:82%;right:10%}
 .float-b{animation-delay:-1.8s}.float-c{animation-delay:-3.4s}.float-d{animation-delay:-5s}.float-e{animation-delay:-2.6s}
-@keyframes bob{0%,100%{margin-top:0}50%{margin-top:-12px}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
 .sub-logo{width:46px;height:46px;flex:none;border-radius:15px;display:grid;place-items:center;font-family:var(--font-d);font-weight:800;font-size:1.25rem;color:#fff;background:linear-gradient(145deg,var(--c1),var(--c2));box-shadow:inset 2px 2px 5px rgba(255,255,255,.35),inset -2px -2px 5px rgba(0,0,0,.3),0 6px 14px rgba(0,0,0,.35)}
 .sub-logo.lg{width:58px;height:58px;font-size:1.6rem;border-radius:18px}
 .sub-logo.brand svg{width:62%;height:62%;fill:var(--glyph,#fff);filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
@@ -108,6 +109,7 @@ img{max-width:100%}
 .sub-chev{margin-left:auto;color:var(--ink-faint);font-size:1.3rem}
 .alert-chip{position:absolute;top:47%;left:-6%;display:flex;align-items:center;gap:.6rem;padding:.7rem 1.1rem;font-size:.85rem;font-weight:600;border-radius:999px;animation:bob 6s ease-in-out infinite}
 .alert-chip .bell{color:var(--warn)}
+.alert-chip .bell svg{width:18px;height:18px;fill:var(--warn);display:block}
 .scene-hint{text-align:center;color:var(--ink-faint);font-size:.82rem;margin-top:1.2rem}
 .hero-marquee{margin-top:4rem;border-top:1px solid rgba(150,165,255,.1);border-bottom:1px solid rgba(150,165,255,.1);overflow:hidden;padding:1rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .marquee-track{display:flex;gap:3.5rem;width:max-content;animation:scroll 26s linear infinite}
@@ -123,8 +125,9 @@ img{max-width:100%}
 .stack{position:absolute;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:#fff;box-shadow:var(--shadow-clay-sm)}
 .s1{background:linear-gradient(145deg,#E50914,#7a0a10);left:8px;top:26px;transform:rotate(-8deg)}
 .s2{background:linear-gradient(145deg,#1DB954,#0d5c2a);left:56px;top:12px;transform:rotate(5deg)}
-.s3{background:linear-gradient(145deg,#5B8CFF,#2b3f9e);left:104px;top:30px;transform:rotate(-4deg)}
+.s3{background:linear-gradient(145deg,#FF0000,#8a0000);left:104px;top:30px;transform:rotate(-4deg)}
 .s4{background:linear-gradient(145deg,#3A4468,#232a4d);left:150px;top:14px;transform:rotate(9deg)}
+.stack svg{width:58%;height:58%;fill:#fff;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
 .money{position:absolute;font-family:var(--font-d);font-weight:800;font-size:2.6rem;color:var(--warn);text-shadow:0 6px 18px rgba(0,0,0,.4);left:20px;top:18px;animation:bob 5s ease-in-out infinite}
 .m2{left:80px;top:44px;font-size:2rem;color:var(--bad);animation-delay:-1.6s}
 .m3{left:140px;top:16px;font-size:3rem;color:var(--cyan);animation-delay:-3s}
@@ -198,6 +201,7 @@ img{max-width:100%}
 .notif span{font-size:.84rem;color:var(--ink-dim)}
 .notif time{margin-left:auto;font-size:.78rem;color:var(--ink-faint)}
 .n-ico{width:42px;height:42px;flex:none;border-radius:14px;background:linear-gradient(135deg,var(--warn),#ff7a54);display:grid;place-items:center;color:#2a1503;font-weight:800;box-shadow:inset 2px 2px 5px rgba(255,255,255,.4)}
+.n-ico svg{width:20px;height:20px;fill:#2a1503;display:block}
 
 /* ---------- savings ---------- */
 .save-banner{display:flex;align-items:center;gap:2rem;padding:2.2rem 2.4rem;margin-top:2.6rem;flex-wrap:wrap}
@@ -279,16 +283,16 @@ img{max-width:100%}
 .reveal-scale{transform:scale(.93)}
 
 /* ---------- motion design system ---------- */
-/* hero entrance choreography */
-.hero-copy > *{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.8,.3,1),transform .8s cubic-bezier(.22,.8,.3,1)}
-body.loaded .hero-copy > *{opacity:1;transform:none}
-body.loaded .hero-copy > *:nth-child(1){transition-delay:.05s}
-body.loaded .hero-copy > *:nth-child(2){transition-delay:.16s}
-body.loaded .hero-copy > *:nth-child(3){transition-delay:.28s}
-body.loaded .hero-copy > *:nth-child(4){transition-delay:.4s}
-body.loaded .hero-copy > *:nth-child(5){transition-delay:.52s}
-.hero-visual{opacity:0;transform:translateY(34px) scale(.985);transition:opacity 1s ease .35s,transform 1s cubic-bezier(.22,.8,.3,1) .35s}
-body.loaded .hero-visual{opacity:1;transform:none}
+/* hero entrance choreography — gated on .js so a stale or missing script can never leave the hero blank */
+.js .hero-copy > *{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.8,.3,1),transform .8s cubic-bezier(.22,.8,.3,1)}
+.js body.loaded .hero-copy > *{opacity:1;transform:none}
+.js body.loaded .hero-copy > *:nth-child(1){transition-delay:.05s}
+.js body.loaded .hero-copy > *:nth-child(2){transition-delay:.16s}
+.js body.loaded .hero-copy > *:nth-child(3){transition-delay:.28s}
+.js body.loaded .hero-copy > *:nth-child(4){transition-delay:.4s}
+.js body.loaded .hero-copy > *:nth-child(5){transition-delay:.52s}
+.js .hero-visual{opacity:0;transform:translateY(34px) scale(.985);transition:opacity 1s ease .35s,transform 1s cubic-bezier(.22,.8,.3,1) .35s}
+.js body.loaded .hero-visual{opacity:1;transform:none}
 
 /* ambient orb drift */
 .orb-1{animation:drift1 18s ease-in-out infinite alternate}
