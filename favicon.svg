@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B8CFF"/><stop offset="1" stop-color="#4DE3FF"/></linearGradient></defs><rect x="3" y="3" width="42" height="42" rx="14" fill="url(#g)"/><path d="M30.5 17.5a8 8 0 1 0 3.4 12.6" stroke="#0A0E1A" stroke-width="4.5" stroke-linecap="round" fill="none"/><path d="M33.5 13v6h-6" stroke="#0A0E1A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SubControl logo">
+  <defs>
+    <linearGradient id="sc-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4DE3FF"/>
+      <stop offset="1" stop-color="#5B8CFF"/>
+    </linearGradient>
+    <linearGradient id="sc-hi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".32"/>
+      <stop offset=".55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="7" y="7" width="50" height="50" rx="16" fill="url(#sc-g)"/>
+  <rect x="7" y="7" width="50" height="50" rx="16" fill="url(#sc-hi)"/>
+  <g transform="translate(16.375 16.375) scale(0.48828125)">
+    <path d="M45 17C45 12 39 10 32 10C23 10 17 15 17 22.5C17 30 23 32.5 30 34.5C37 36.5 47 39 47 48.5C47 56 40 60 32 60C25 60 19.5 57 18.5 51.5"
+      fill="none" stroke="#0A0E1A" stroke-width="10.5" stroke-linecap="round"/>
+  </g>
+</svg>
